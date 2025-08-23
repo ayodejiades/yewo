@@ -8,8 +8,8 @@ st.set_page_config(page_title="Yewo", layout="wide")
 @st.cache_resource
 def load_models():
     try:
-        nigerian_pipeline = joblib.load('yewo.joblib')
-        global_pipeline = joblib.load('yewo2.joblib')
+        nigerian_pipeline = joblib.load('models\yewo.joblib')
+        global_pipeline = joblib.load('models\yewo2.joblib')
         return nigerian_pipeline, global_pipeline
     except FileNotFoundError:
         st.error("Model files not found. Please ensure 'yewo.joblib' and 'yewo2.joblib' are in the same directory as app.py.")
@@ -17,7 +17,7 @@ def load_models():
 
 nigerian_model, global_model = load_models()
 
-st.title("🕵️‍♀️ Yewo: The Nigerian Job Scam Detector")
+st.title("Yewo: The Nigerian Job Scam Detector")
 st.markdown("""
 Welcome to **Yewo** (Yoruba: "to check"), an AI-powered safety net for Nigerian job seekers. Our system uses a **two-tier AI approach** for maximum protection:
 1.  A **Nigerian-tuned model** that identifies local scam tactics.
