@@ -90,7 +90,7 @@ if st.button("Analyze Job Posting", use_container_width=True, type="primary"):
             input_df = pd.DataFrame(input_data)
             
             nigerian_proba = nigerian_model.predict_proba(input_df)[0][1]
-            PREDICTION_THRESHOLD = 0.35
+            PREDICTION_THRESHOLD = 0.50
             is_scam_nigerian = nigerian_proba >= PREDICTION_THRESHOLD
             
             global_text_input = st.session_state.job_title + ' ' + st.session_state.job_desc + ' ' + st.session_state.job_requirement
