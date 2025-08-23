@@ -73,7 +73,7 @@ if st.button("Load an example"):
 
 st.markdown("---")
 
-if st.button("Analyze Job Posting for Scams", use_container_width=True, type="primary"):
+if st.button("Analyze Job Posting", use_container_width=True, type="primary"):
     with st.spinner('Yewo is analyzing the text... Please wait.'):
         job_title_val = st.session_state.job_title
         job_desc_val = st.session_state.job_desc
