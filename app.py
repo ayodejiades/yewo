@@ -56,7 +56,7 @@ with col2:
         'Healthcare', 'Retail', 'Shipping & Logistics', 'Government', 'Finance', 'Hospitality', 'Other'
     ])
 
-if st.button("Load a Scam Example"):
+if st.button("Load an example"):
     st.session_state.job_title = "Urgent Personal Assistant (Work From Home)"
     st.session_state.job_desc = "A busy executive needs an assistant for immediate hire. No experience is needed. High salary paid weekly. You must be smart and ready to work fast. Send your CV directly to our manager on WhatsApp."
     st.session_state.job_requirement = "Must have a smartphone and internet access. A small payment of 5000 Naira is required for a registration and training fee. This is refundable after one month."
@@ -65,7 +65,7 @@ if st.button("Load a Scam Example"):
 
 st.markdown("---")
 
-if st.button("Analyze Job Posting for Scams", use_container_width=True, type="primary"):
+if st.button("Analyze Job Posting", use_container_width=True, type="primary"):
     with st.spinner('Yewo is analyzing the text... Please wait.'):
         if not job_title or not job_desc:
             st.warning("Please fill in at least the Job Title and Job Description for an accurate analysis.")
