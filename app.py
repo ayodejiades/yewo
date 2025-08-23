@@ -64,7 +64,7 @@ with col2:
 
 st.markdown("---")
 
-if st.button("Analyze Job Posting for Scams", use_container_width=True, type="primary"):
+if st.button("Analyze Job Posting", use_container_width=True, type="primary"):
     if not job_title or not job_desc:
         st.warning("Please fill in at least the Job Title and Job Description for an accurate analysis.")
     else:
@@ -130,3 +130,5 @@ if st.button("Analyze Job Posting for Scams", use_container_width=True, type="pr
             legit_probability = 1 - nigerian_proba
             st.success(f"**Low Risk: Appears Legitimate.** (Nigerian Model Confidence: {legit_probability:.0%})")
             st.markdown("Neither our Nigerian-focused model nor our Global Expert model detected high-risk indicators. As always, please conduct your own research on the company.")
+st.sidebar.markdown("---")
+st.sidebar.write("Made with ❤️ by O3")
