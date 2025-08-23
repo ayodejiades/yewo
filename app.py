@@ -1,5 +1,6 @@
-import gradio as gr
+import streamlit as st
 import pandas as pd
+import numpy as np
 import joblib
 import re 
 
@@ -79,20 +80,20 @@ if nigerian_model and global_model:
             st.write("---")
             st.subheader("Analysis Result")
             
-            if is_scam_nigerian:
-                st.error(f"**High Risk: LIKELY A SCAM.** (Nigerian Model Confidence: {nigerian_proba:.0%})", icon="🚨")
-                reasons = []
-                if scam_score > 0:
-                    reasons.append("it contains high-risk indicators (like requests for payment, personal emails, or WhatsApp numbers).")
-                if len(job_desc) < 150 and not reasons:
-                     reasons.append("the job description is unusually short and lacks detail.")
-                if not reasons:
-                    reasons.append("it matches patterns commonly found in fraudulent job postings.")
-                st.markdown(f"**Reasoning:** Our Nigerian-focused model has flagged this post because " + ", ".join(reasons))
-                st.warning("**Recommendation:** Do NOT share personal details or make any payments. Avoid this opportunity.", icon="⚠️")
+        if is_scam_nigerian:
+            st.error(f"**High Risk: LIKELY A SCAM.** (Nigerian Model Confidence: {nigerian_proba:.0%})")
+            reasons = []
+            if scam_score > 0:
+                reasons.append("it contains high-risk indicators (like requests for payment, personal emails, or WhatsApp numbers).")
+            if len(job_desc) < 150 and not reasons:
+                 reasons.append("the job description is unusually short and lacks detail.")
+            if not reasons:
+                reasons.append("it matches patterns commonly found in fraudulent job postings.")
+            st.markdown(f"**Reasoning:** Our Nigerian-focused model has flagged this post because " + ", ".join(reasons))
+            st.warning("**Recommendation:** Do NOT share personal details or make any payments. Avoid this opportunity.")
 
         elif is_scam_global:
-            st.warning(f"**Caution: POTENTIAL RISK DETECTED.**", icon="⚠️")
+            st.warning(f"**Caution: POTENTIAL RISK DETECTED.**")
             st.markdown("Our primary Nigerian model did not find a direct match for local scam tactics. However, our **Global Expert model**, trained on over 17,000 job posts, detected that the **general language and structure** of this post are similar to international job scams.")
             st.info("**Recommendation:** This job may be legitimate, but it is unusual. Please research the company thoroughly before proceeding.", icon="ℹ️")
 
